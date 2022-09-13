@@ -8,16 +8,32 @@ export type IFormInput = {
   user: string;
   language: LangEnum | undefined;
 };
+
 export type ICard = {
   name: string;
   html_url: string;
-  description: string;
-  login: string;
-  avatar_url: string;
-  // repository: { description: string };
-  // owner: { login: string; avatar_url: string };
+  repository: {
+    description: string;
+    owner: { login: string; avatar_url: string };
+  };
 };
 
 export type ICards = {
   cards: ICard[];
+};
+
+export type SettingType = {
+  entriesOnSelectedPage: ICard[];
+  actualPageIdx: number;
+  lastPageIdx: number;
+};
+
+export type FunctionsType = {
+  goToPage: (number: number) => void;
+};
+
+export type PaginationType = {
+  postPerPage: number;
+  totalPosts: number;
+  paginationActions: FunctionsType;
 };
