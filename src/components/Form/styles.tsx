@@ -9,34 +9,33 @@ const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: #309975;
-
+  background-color: ${({ theme }) => theme.colors.formColor};
   padding: 10px;
-  border-radius: 10px;
+  border-radius: ${({ theme }) => theme.border};
 `;
 
 const Button = styled.button`
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.border};
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
+  font-weight: ${({ theme }) => theme.font.weigth.semiBold};
   font-family: inherit;
-  background-color: #1a1a1a;
+  background-color: ${({ theme }) => theme.colors.black};
   cursor: pointer;
   transition: border-color 0.25s;
   margin-top: 15px;
   &:hover {
-    border-color: #646cff;
+    border-color: ${({ theme }) => theme.colors.blue};
   }
 `;
 
 const Input = styled.input`
   width: 55%;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.border};
   text-align: center;
   border: none;
-  background-color: #454d66;
+  background-color: ${({ theme }) => theme.colors.inputColor};
 `;
 const InputContainer = styled.div`
   display: flex;
@@ -53,11 +52,12 @@ const Small = styled.small`
   display: block;
   text-align: center;
   width: 100%;
-  color: #ffffffde;
+  color: ${({ theme }) => theme.colors.white};
 `;
 const Select = styled.select`
   text-align: center;
-  border-radius: 8px;
+  background-color: ${({ theme }) => theme.colors.inputColor};
+  border-radius: ${({ theme }) => theme.border};
   width: 55%;
 `;
 const Option = styled.option``;

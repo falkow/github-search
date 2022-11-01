@@ -3,7 +3,7 @@ import { ICard, ICards } from '../../types';
 import { Card } from '../Card';
 
 import { usePagination } from './hooks';
-import { Pagination } from './Pagination';
+import { Pagination } from '../Pagination';
 import * as S from './styles';
 
 export const Cards = ({ cards }: ICards) => {

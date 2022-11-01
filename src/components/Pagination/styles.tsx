@@ -15,17 +15,17 @@ const Item = styled.li`
 `;
 const Link = styled.a`
   text-decoration: none;
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.border};
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
-  font-weight: 500;
-  color: #ffffffde;
-  background-color: #1a1a1a;
+  font-weight: ${({ theme }) => theme.font.weigth.semiBold};
+  color: ${({ theme }) => theme.colors.white};
+  background-color: ${({ theme }) => theme.colors.black};
   cursor: pointer;
   transition: border-color 0.25s;
   &:hover {
-    border-color: #646cff;
+    border-color: ${({ theme }) => theme.colors.blue};
   }
 `;
 

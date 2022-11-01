@@ -5,10 +5,10 @@ export const GlobalStyle = createGlobalStyle`
   font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
-  font-weight: 400;
+  font-weight: ${({ theme }) => theme.font.weigth.normal};
 
   color-scheme: light dark;
-  background-color: #454d66;
+  background-color: ${({ theme }) => theme.colors.backgroundColor};
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;

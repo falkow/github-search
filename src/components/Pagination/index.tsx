@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { PaginationType } from '../../../types';
+import { PaginationType } from '../../types';
 import * as S from './styles';
 
 export const Pagination = ({

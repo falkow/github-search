@@ -7,7 +7,8 @@ const Title = styled.h2`
   text-align: center;
 `;
 const Input = styled.input`
-  border-radius: 8px;
+  border-radius: ${({ theme }) => theme.border};
+  background-color: ${({ theme }) => theme.colors.inputColor};
   border: none;
   text-align: center;
 `;

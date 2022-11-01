@@ -5,8 +5,8 @@ const CardContainer = styled.div`
   align-items: center;
   flex-direction: row;
   flex-wrap: wrap;
-  background-color: #825d50;
-  border-radius: 10px;
+  background-color: ${({ theme }) => theme.colors.cardColor};
+  border-radius: ${({ theme }) => theme.border};
   padding: 10px;
   margin: 10px 0;
 `;
@@ -20,17 +20,17 @@ const InfoContainer = styled.div`
 
   & .modal {
     &Btn {
-      border-radius: 8px;
+      border-radius: ${({ theme }) => theme.border};
       border: 1px solid transparent;
       padding: 0.3em 0.6em;
       font-size: 1em;
-      font-weight: 500;
+      font-weight: ${({ theme }) => theme.font.weigth.semiBold};
       font-family: inherit;
-      background-color: #1a1a1a;
+      background-color: ${({ theme }) => theme.colors.black};
       cursor: pointer;
       transition: border-color 0.25s;
       &:hover {
-        border-color: #646cff;
+        border-color: ${({ theme }) => theme.colors.blue};
       }
     }
     &Container {
@@ -60,11 +60,11 @@ const Description = styled.p`
   padding-right: 5px;
 `;
 const Link = styled.a`
-  font-weight: 500;
-  color: #ffffffde;
+  font-weight: ${({ theme }) => theme.font.weigth.semiBold};
+  color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
   &:hover {
-    color: #242424;
+    color: ${({ theme }) => theme.colors.linkColor};
   }
 `;
 const Button = styled.div`
