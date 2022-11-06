@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { SettingType, FunctionsType, ICard } from '../../types';
+import { SettingType, FunctionsType, ICard } from '../types';
 
 export const usePagination = (
   dataEntries: ICard[],

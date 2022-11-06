@@ -1,31 +1,23 @@
 import { useState } from 'react';
-import { useFetch } from './hooks';
+import { useFetch } from '../../hooks/useFetch';
 import { useForm } from 'react-hook-form';
 import { IFormInput } from '../../types';
 import { Cards } from '../Cards';
 import * as S from './styles';
 
 function Form() {
-  const [form, setForm] = useState<IFormInput>({
-    query: '',
-    user: '',
-    language: undefined,
-  });
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>();
-  const { cards } = useFetch(form);
 
-  const onSubmit = (data: IFormInput) => {
-    setForm(data);
-  };
+  const { handleData, cards } = useFetch();
 
   return (
     <>
       <S.Container>
-        <S.Form onSubmit={handleSubmit(onSubmit)}>
+        <S.Form onSubmit={handleSubmit(handleData)}>
           <S.Title>Search on GitHub:</S.Title>
           <S.Description>
             Search through repositories on GitHub to find interesting files

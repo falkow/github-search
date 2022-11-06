@@ -7,6 +7,8 @@ const List = styled.ul`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
 `;
 const Item = styled.li`
   text-decoration: none;
@@ -17,7 +19,11 @@ const Link = styled.a`
   text-decoration: none;
   border-radius: ${({ theme }) => theme.border};
   border: 1px solid transparent;
-  padding: 0.6em 1.2em;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   font-size: 1em;
   font-weight: ${({ theme }) => theme.font.weigth.semiBold};
   color: ${({ theme }) => theme.colors.white};

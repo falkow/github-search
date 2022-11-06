@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ICard, ICards } from '../../types';
 import { Card } from '../Card';
 
-import { usePagination } from './hooks';
+import { usePagination } from '../../hooks/usePagination';
 import { Pagination } from '../Pagination';
 import * as S from './styles';
 

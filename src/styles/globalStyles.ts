@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
   line-height: 24px;
   font-weight: ${({ theme }) => theme.font.weigth.normal};
 
-  color-scheme: light dark;
+  color:${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.backgroundColor};
 
   font-synthesis: none;
@@ -34,6 +34,11 @@ body {
     -webkit-appearance: none;
     margin: 0;
   }
+  /* input:-internal-autofill-selected */
+   /* input:-webkit-autofill,
+  input:-webkit-autofill:focus {
+    transition: background-color 600000s 0s, color 600000s 0s;
+  } */
 
   /* Firefox */
   & input[type='number'] {

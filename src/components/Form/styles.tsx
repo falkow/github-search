@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 480px;
+  width: 720px;
   margin-top: 50px;
 `;
 
@@ -25,6 +25,8 @@ const Button = styled.button`
   cursor: pointer;
   transition: border-color 0.25s;
   margin-top: 15px;
+  color: ${({ theme }) => theme.colors.white};
+
   &:hover {
     border-color: ${({ theme }) => theme.colors.blue};
   }
@@ -36,6 +38,11 @@ const Input = styled.input`
   text-align: center;
   border: none;
   background-color: ${({ theme }) => theme.colors.inputColor};
+  color: ${({ theme }) => theme.colors.white};
+
+  /* &[value='*'] {
+    background-color: ${({ theme }) => theme.colors.inputColorActive};
+  } */
 `;
 const InputContainer = styled.div`
   display: flex;
@@ -56,6 +63,8 @@ const Small = styled.small`
 `;
 const Select = styled.select`
   text-align: center;
+  color: ${({ theme }) => theme.colors.white};
+
   background-color: ${({ theme }) => theme.colors.inputColor};
   border-radius: ${({ theme }) => theme.border};
   width: 55%;

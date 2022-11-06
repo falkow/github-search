@@ -1,5 +1,5 @@
 import { ICard } from '../../types';
-import { useVisibility } from './hooks';
+import { useVisibility } from '../../hooks/useVisibility';
 import * as S from './styles';
 
 export const Card = ({

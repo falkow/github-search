@@ -9,8 +9,10 @@ declare module 'styled-components' {
       cardColor: string;
       formColor: string;
       inputColor: string;
+      inputColorActive: string;
       linkColor: string;
       backgroundColor: string;
+      fontColor: string;
     };
     font: {
       family: {
