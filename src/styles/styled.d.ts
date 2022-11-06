@@ -13,6 +13,7 @@ declare module 'styled-components' {
       linkColor: string;
       backgroundColor: string;
       fontColor: string;
+      borderColor: string;
     };
     font: {
       family: {
@@ -22,6 +23,10 @@ declare module 'styled-components' {
       weigth: {
         normal: number;
         semiBold: number;
+      };
+      size: {
+        small: string;
+        normal: string;
       };
     };
     border: string;

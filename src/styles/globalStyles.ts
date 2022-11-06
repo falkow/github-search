@@ -10,18 +10,21 @@ export const GlobalStyle = createGlobalStyle`
   color:${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.backgroundColor};
 
-  font-synthesis: none;
+  /* font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%; */
 }
 
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+        outline: none;
+    }
 
 body {
   margin: 0;
@@ -35,14 +38,15 @@ body {
     margin: 0;
   }
   /* input:-internal-autofill-selected */
-   /* input:-webkit-autofill,
+   input:-webkit-autofill,
   input:-webkit-autofill:focus {
+
     transition: background-color 600000s 0s, color 600000s 0s;
-  } */
+  }
 
   /* Firefox */
-  & input[type='number'] {
+  /* & input[type='number'] {
     -moz-appearance: textfield;
-  }
+  } */
 
 `;

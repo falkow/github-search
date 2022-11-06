@@ -30,7 +30,7 @@ const InfoContainer = styled.div`
       cursor: pointer;
       transition: border-color 0.25s;
       &:hover {
-        border-color: ${({ theme }) => theme.colors.blue};
+        border-color: ${({ theme }) => theme.colors.borderColor};
       }
     }
     &Container {

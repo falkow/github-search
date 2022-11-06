@@ -30,9 +30,9 @@ const Link = styled.a`
   background-color: ${({ theme }) => theme.colors.black};
   cursor: pointer;
   transition: border-color 0.25s;
-  &:hover {
+  /* &:hover {
     border-color: ${({ theme }) => theme.colors.blue};
-  }
+  } */
 `;
 
 export { Nav, List, Item, Link };
