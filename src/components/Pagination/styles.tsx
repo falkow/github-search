@@ -34,5 +34,25 @@ const Link = styled.a`
     border-color: ${({ theme }) => theme.colors.blue};
   } */
 `;
+const RecordsInputContainer = styled.div`
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+`;
+const Input = styled.input`
+  border-radius: ${({ theme }) => theme.border};
+  background-color: ${({ theme }) => theme.colors.inputColor};
+  color: ${({ theme }) => theme.colors.fontColor};
+  border: none;
+  text-align: center;
+  font-size: ${({ theme }) => theme.font.size.small};
 
-export { Nav, List, Item, Link };
+  /* &:active {
+    border: solid 1px ${({ theme }) => theme.colors.borderColor};
+  } */
+`;
+const Label = styled.label`
+  padding-right: 5px;
+`;
+
+export { Nav, List, Item, Link, RecordsInputContainer, Input, Label };

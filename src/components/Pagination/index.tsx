@@ -9,7 +9,7 @@ export const Pagination = ({
 }: PaginationType) => {
   const [pageNumber, setPageNumber] = useState<number[]>([]);
 
-  const { goToPage } = paginationActions;
+  const { goToPage, handleEntriesChange } = paginationActions;
 
   useEffect(() => {
     const pages: number[] = [];
@@ -17,21 +17,33 @@ export const Pagination = ({
       pages.push(i);
     }
     setPageNumber(pages);
-  }, [postPerPage, postPerPage]);
+  }, [totalPosts, postPerPage]);
 
   return (
-    <S.Nav>
-      <S.List>
-        {pageNumber.map((number) => {
-          return (
-            <S.Item key={number}>
-              <S.Link href='#' onClick={() => goToPage(number)}>
-                {number}
-              </S.Link>
-            </S.Item>
-          );
-        })}
-      </S.List>
-    </S.Nav>
+    <>
+      <S.RecordsInputContainer>
+        <S.Label>Number of records on page: </S.Label>
+        <S.Input
+          type='number'
+          min={1}
+          max={totalPosts}
+          value={postPerPage}
+          onChange={handleEntriesChange}
+        />
+      </S.RecordsInputContainer>
+      <S.Nav>
+        <S.List>
+          {pageNumber.map((number) => {
+            return (
+              <S.Item key={number}>
+                <S.Link href='#' onClick={() => goToPage(number)}>
+                  {number}
+                </S.Link>
+              </S.Item>
+            );
+          })}
+        </S.List>
+      </S.Nav>
+    </>
   );
 };
