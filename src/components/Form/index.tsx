@@ -12,7 +12,7 @@ function Form() {
     formState: { errors },
   } = useForm<IFormInput>();
 
-  const { handleData, cards } = useFetch();
+  const { handleData, cards, status } = useFetch();
 
   return (
     <>
@@ -56,7 +56,7 @@ function Form() {
           </S.InputContainer>
           <S.Button type='submit'>Search</S.Button>
         </S.Form>
-        <Cards cards={cards} />
+        <Cards cards={cards} status={status} />
       </S.Container>
     </>
   );

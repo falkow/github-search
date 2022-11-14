@@ -6,13 +6,13 @@ import { Pagination } from '../Pagination';
 import * as S from './styles';
 import { Info } from '../Info';
 
-export const Cards = ({ cards }: ICards) => {
+export const Cards = ({ cards, status }: ICards) => {
   const [paginationState, paginationActions] = usePagination(cards);
   const { entriesOnSelectedPage, elementsOnPage } = paginationState;
-  console.log(cards);
+  // console.log(cards);
   return (
     <S.ResultsContainer>
-      {cards.length === 0 && <Info />}
+      {status === 0 && <Info />}
       {entriesOnSelectedPage.length > 0 && (
         <>
           <S.Title>Results:</S.Title>

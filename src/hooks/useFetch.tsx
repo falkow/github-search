@@ -4,6 +4,7 @@ import { IFormInput } from '../types';
 
 export const useFetch = () => {
   const [cards, setCards] = useState([]);
+  const [status, setStatus] = useState();
 
   const handleParams = (data: IFormInput) => {
     const tagsWithAttr: string[] = [];
@@ -29,8 +30,8 @@ export const useFetch = () => {
       signal: controller.signal,
     })
       .then((response) => {
-        console.log(response);
         setCards(response.data.items);
+        setStatus(response.data.total_count);
       })
       .catch((error) => {
         error.response.data.errors.forEach((element: any) => {
@@ -44,5 +45,5 @@ export const useFetch = () => {
     };
   };
 
-  return { handleData, cards };
+  return { handleData, cards, status };
 };

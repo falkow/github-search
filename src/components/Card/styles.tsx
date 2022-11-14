@@ -14,7 +14,8 @@ const CardContainer = styled.div`
 const InfoContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-around;
+  /* flex-wrap: wrap; */
   flex-basis: 50%;
 
   & .modal {
@@ -62,6 +63,7 @@ const Link = styled.a`
   font-weight: ${({ theme }) => theme.font.weigth.semiBold};
   color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
+  word-break: break-word;
   &:hover {
     color: ${({ theme }) => theme.colors.linkColor};
   }
