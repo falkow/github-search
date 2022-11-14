@@ -1,15 +1,9 @@
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
-  /* display: flex;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap; */
   display: grid;
   justify-items: center;
   gap: 15px;
-  /* grid-template-columns: 30% 70%; */
-  /* grid-template-columns: repeat(2, auto); */
   grid-template-columns: minmax(200px, 1fr) 3fr;
   grid-template-rows: repeat(2, auto);
   background-color: ${({ theme }) => theme.colors.cardColor};
@@ -60,10 +54,6 @@ const InfoContainer = styled.div`
     justify-content: center;
     align-items: center;
   }
-
-  /* & .test {
-    flex-basis: 30%;
-  } */
 `;
 const Description = styled.p`
   padding-right: 15px;

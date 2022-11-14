@@ -4,13 +4,15 @@ import { Card } from '../Card';
 import { usePagination } from '../../hooks/usePagination';
 import { Pagination } from '../Pagination';
 import * as S from './styles';
+import { Info } from '../Info';
 
 export const Cards = ({ cards }: ICards) => {
   const [paginationState, paginationActions] = usePagination(cards);
   const { entriesOnSelectedPage, elementsOnPage } = paginationState;
-
+  console.log(cards);
   return (
     <S.ResultsContainer>
+      {cards.length === 0 && <Info />}
       {entriesOnSelectedPage.length > 0 && (
         <>
           <S.Title>Results:</S.Title>

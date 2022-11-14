@@ -29,7 +29,7 @@ export const useFetch = () => {
       signal: controller.signal,
     })
       .then((response) => {
-        console.log(response.data.items);
+        console.log(response);
         setCards(response.data.items);
       })
       .catch((error) => {
