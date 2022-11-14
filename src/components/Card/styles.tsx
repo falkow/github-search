@@ -1,10 +1,17 @@
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
-  display: flex;
+  /* display: flex;
   align-items: center;
   flex-direction: row;
-  flex-wrap: wrap;
+  flex-wrap: wrap; */
+  display: grid;
+  justify-items: center;
+  gap: 15px;
+  /* grid-template-columns: 30% 70%; */
+  /* grid-template-columns: repeat(2, auto); */
+  grid-template-columns: minmax(200px, 1fr) 3fr;
+  grid-template-rows: repeat(2, auto);
   background-color: ${({ theme }) => theme.colors.cardColor};
   border-radius: ${({ theme }) => theme.border};
   padding: 10px;
@@ -13,9 +20,7 @@ const CardContainer = styled.div`
 const InfoContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-bottom: 5px;
-  padding-left: 5px;
+  justify-content: space-between;
   flex-basis: 50%;
 
   & .modal {
@@ -55,9 +60,13 @@ const InfoContainer = styled.div`
     justify-content: center;
     align-items: center;
   }
+
+  /* & .test {
+    flex-basis: 30%;
+  } */
 `;
 const Description = styled.p`
-  padding-right: 5px;
+  padding-right: 15px;
 `;
 const Link = styled.a`
   font-weight: ${({ theme }) => theme.font.weigth.semiBold};
