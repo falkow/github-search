@@ -3,10 +3,13 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "homepage": "https://falkow.github.io/github-search/",
   "scripts": {
     "dev": "vite",
     "start": "npm run dev",
     "build": "tsc && vite build",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
   "dependencies": {
@@ -21,6 +24,7 @@
     "@types/styled-components": "^5.1.26",
     "@vitejs/plugin-react": "^2.1.0",
     "axios": "^0.27.2",
+    "gh-pages": "^4.0.0",
     "typescript": "^4.6.4",
     "vite": "^3.2.4"
   }
