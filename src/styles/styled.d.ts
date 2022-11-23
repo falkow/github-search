@@ -6,6 +6,7 @@ declare module 'styled-components' {
       blue: string;
       black: string;
       white: string;
+      warning: string;
       cardColor: string;
       formColor: string;
       inputColor: string;
@@ -30,5 +31,11 @@ declare module 'styled-components' {
       };
     };
     border: string;
+    breakpoints: IBreakpoints;
   }
+}
+interface IBreakpoints {
+  sm: string;
+  md: string;
+  lg: string;
 }

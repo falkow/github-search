@@ -5,6 +5,7 @@ export const theme: DefaultTheme = {
     blue: '#646cff',
     black: '#26292A',
     white: '#ffffff',
+    warning: '#F3F8D1',
     fontColor: '#ffffffde',
     cardColor: '#265D62',
     formColor: '#667E89',
@@ -29,4 +30,9 @@ export const theme: DefaultTheme = {
     },
   },
   border: '8px',
+  breakpoints: {
+    sm: '480px',
+    md: '768px',
+    lg: '1024px',
+  },
 };

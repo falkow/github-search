@@ -23,7 +23,7 @@ export const Card = ({
         <S.Description>Description: </S.Description>
         <p>{description}</p>
       </S.InfoContainer>
-      <S.InfoContainer className='test'>
+      <S.InfoContainer>
         <S.Description>Username: </S.Description>
         <p>{login}</p>
       </S.InfoContainer>

@@ -1,8 +1,13 @@
 import styled from 'styled-components';
 
 const Container = styled.div`
-  width: 720px;
+  max-width: 620px;
   margin-top: 50px;
+  margin-left: 20px;
+  margin-right: 20px;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    margin: 20px;
+  }
 `;
 
 const Form = styled.form`
@@ -34,7 +39,7 @@ const Button = styled.button`
 `;
 
 const Input = styled.input`
-  width: 55%;
+  width: 100%;
   border-radius: ${({ theme }) => theme.border};
   text-align: center;
   border: 1px solid transparent;
@@ -45,33 +50,40 @@ const Input = styled.input`
   &:focus {
     border: solid 1px ${({ theme }) => theme.colors.borderColor};
   }
-
-  /* &[value='*'] {
-    background-color: ${({ theme }) => theme.colors.inputColor};
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: 5px 0;
   }
-  &:-internal-autofill-selected {
-    background-color: ${({ theme }) => theme.colors.inputColor} !important;
-  } */
 `;
 
 const InputContainer = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  width: 100%;
-  padding: 10px 0;
+  display: grid;
+  width: 75%;
+  grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr auto;
+  padding-top: 15px;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    display: flex;
+    flex-direction: column;
+    padding: 5px 0;
+  }
 `;
 
 const InputLabel = styled.label`
-  width: 20%;
-  text-align: end;
+  text-align: center;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding-bottom: 5px;
+  }
 `;
 
 const Small = styled.small`
   display: block;
-  text-align: center;
+  grid-area: 2 /2/-1/-1;
   width: 100%;
-  color: ${({ theme }) => theme.colors.white};
+  padding-top: 5px;
+  color: ${({ theme }) => theme.colors.warning};
+  text-align: center;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+  }
 `;
 
 const Select = styled.select`
@@ -79,7 +91,6 @@ const Select = styled.select`
   color: ${({ theme }) => theme.colors.white};
   background-color: ${({ theme }) => theme.colors.inputColor};
   border-radius: ${({ theme }) => theme.border};
-  width: 55%;
   border: none;
   transition: border-color 0.25s;
   font-size: ${({ theme }) => theme.font.size.small};
@@ -87,16 +98,25 @@ const Select = styled.select`
   &:focus {
     border: solid 1px ${({ theme }) => theme.colors.borderColor};
   }
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: 5px;
+  }
 `;
 
 const Option = styled.option``;
 
 const Title = styled.h1`
   padding: 10px 0;
+  text-align: center;
+  line-height: 1.2;
 `;
 
 const Description = styled.p`
-  padding: 10px 0;
+  padding: 10px 90px;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.sm}) {
+    padding: 10px;
+    text-align: center;
+  }
 `;
 
 export {

@@ -30,9 +30,6 @@ const Link = styled.a`
   background-color: ${({ theme }) => theme.colors.black};
   cursor: pointer;
   transition: border-color 0.25s;
-  /* &:hover {
-    border-color: ${({ theme }) => theme.colors.blue};
-  } */
 `;
 const RecordsInputContainer = styled.div`
   margin: 20px 0;
@@ -45,11 +42,7 @@ const Input = styled.input`
   color: ${({ theme }) => theme.colors.fontColor};
   border: none;
   text-align: center;
-  font-size: ${({ theme }) => theme.font.size.small};
-
-  /* &:active {
-    border: solid 1px ${({ theme }) => theme.colors.borderColor};
-  } */
+  font-size: ${({ theme }) => theme.font.size.normal};
 `;
 const Label = styled.label`
   padding-right: 5px;

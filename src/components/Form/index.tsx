@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { useFetch } from '../../hooks/useFetch';
 import { useForm } from 'react-hook-form';
 import { IFormInput } from '../../types';
@@ -26,7 +25,7 @@ function Form() {
             <S.InputLabel>Query:</S.InputLabel>
             <S.Input {...register('query', { required: true })} />
             {errors.query?.type === 'required' && (
-              <S.Small>type what are you looking for</S.Small>
+              <S.Small>Type what are you looking for</S.Small>
             )}
           </S.InputContainer>
           <S.InputContainer>
