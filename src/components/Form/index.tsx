@@ -1,31 +1,22 @@
-import { useState } from 'react';
-import { useFetch } from './hooks';
+import { useFetch } from '../../hooks/useFetch';
 import { useForm } from 'react-hook-form';
 import { IFormInput } from '../../types';
 import { Cards } from '../Cards';
 import * as S from './styles';
 
 function Form() {
-  const [form, setForm] = useState<IFormInput>({
-    query: '',
-    user: '',
-    language: undefined,
-  });
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<IFormInput>();
-  const { cards } = useFetch(form);
 
-  const onSubmit = (data: IFormInput) => {
-    setForm(data);
-  };
+  const { handleData, cards, status } = useFetch();
 
   return (
     <>
       <S.Container>
-        <S.Form onSubmit={handleSubmit(onSubmit)}>
+        <S.Form onSubmit={handleSubmit(handleData)}>
           <S.Title>Search on GitHub:</S.Title>
           <S.Description>
             Search through repositories on GitHub to find interesting files
@@ -34,7 +25,7 @@ function Form() {
             <S.InputLabel>Query:</S.InputLabel>
             <S.Input {...register('query', { required: true })} />
             {errors.query?.type === 'required' && (
-              <S.Small>type what are you looking for</S.Small>
+              <S.Small>Type what are you looking for</S.Small>
             )}
           </S.InputContainer>
           <S.InputContainer>
@@ -64,7 +55,7 @@ function Form() {
           </S.InputContainer>
           <S.Button type='submit'>Search</S.Button>
         </S.Form>
-        <Cards cards={cards} />
+        <Cards cards={cards} status={status} />
       </S.Container>
     </>
   );

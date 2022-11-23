@@ -1,13 +1,12 @@
 import axios from 'axios';
-import { useEffect, useState } from 'react';
-import { IFormInput } from '../../types';
+import { useState } from 'react';
+import { IFormInput } from '../types';
 
-export const useFetch = (data: IFormInput) => {
+export const useFetch = () => {
   const [cards, setCards] = useState([]);
+  const [status, setStatus] = useState();
 
-  const { query, user, language } = data;
-
-  const handleParams = (data: any) => {
+  const handleParams = (data: IFormInput) => {
     const tagsWithAttr: string[] = [];
     const url = new URL(location.href);
     const params = new URLSearchParams(location.search);
@@ -17,11 +16,12 @@ export const useFetch = (data: IFormInput) => {
     });
   };
 
-  useEffect(() => {
+  const handleData = (data: IFormInput) => {
+    const { query, user, language } = data;
     if (query.length <= 0 || user.length <= 0) {
       return;
     }
-    handleParams(data);
+    // handleParams(data);
     const controller = new AbortController();
 
     axios({
@@ -31,6 +31,7 @@ export const useFetch = (data: IFormInput) => {
     })
       .then((response) => {
         setCards(response.data.items);
+        setStatus(response.data.total_count);
       })
       .catch((error) => {
         error.response.data.errors.forEach((element: any) => {
@@ -42,6 +43,7 @@ export const useFetch = (data: IFormInput) => {
     return () => {
       controller.abort();
     };
-  }, [query, user, language]);
-  return { cards };
+  };
+
+  return { handleData, cards, status };
 };

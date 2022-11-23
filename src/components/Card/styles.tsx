@@ -1,46 +1,33 @@
 import styled from 'styled-components';
 
 const CardContainer = styled.div`
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-  flex-wrap: wrap;
+  display: grid;
+  justify-items: center;
+  gap: 15px;
+  grid-template-columns: minmax(200px, 1fr) 3fr;
+  grid-template-rows: repeat(2, auto);
   background-color: ${({ theme }) => theme.colors.cardColor};
   border-radius: ${({ theme }) => theme.border};
   padding: 10px;
   margin: 10px 0;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    gap: 5px;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, auto);
+  }
 `;
 const InfoContainer = styled.div`
   display: flex;
   align-items: center;
-  justify-content: center;
-  padding-bottom: 5px;
-  padding-left: 5px;
+  justify-content: flex-start;
   flex-basis: 50%;
-
-  & .modal {
-    &Btn {
-      border-radius: ${({ theme }) => theme.border};
-      border: 1px solid transparent;
-      padding: 0.3em 0.6em;
-      font-size: 1em;
-      font-weight: ${({ theme }) => theme.font.weigth.semiBold};
-      font-family: inherit;
-      background-color: ${({ theme }) => theme.colors.black};
-      cursor: pointer;
-      transition: border-color 0.25s;
-      &:hover {
-        border-color: ${({ theme }) => theme.colors.blue};
-      }
-    }
-    &Container {
-      position: absolute;
-      width: 300px;
-      height: 300px;
-      z-index: 5;
-      & img {
-        width: 100%;
-      }
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    width: 100%;
+    justify-content: flex-start;
+  }
+  &.modal {
+    @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+      justify-content: center;
     }
   }
 
@@ -57,18 +44,47 @@ const InfoContainer = styled.div`
   }
 `;
 const Description = styled.p`
-  padding-right: 5px;
+  padding-right: 15px;
+  @media screen and (max-width: ${({ theme }) => theme.breakpoints.md}) {
+    flex-basis: 100px;
+  }
 `;
 const Link = styled.a`
   font-weight: ${({ theme }) => theme.font.weigth.semiBold};
   color: ${({ theme }) => theme.colors.white};
   text-decoration: none;
+  word-break: break-word;
   &:hover {
     color: ${({ theme }) => theme.colors.linkColor};
   }
 `;
 const Button = styled.div`
   padding: 5px;
+  &.modal {
+    &Btn {
+      border-radius: ${({ theme }) => theme.border};
+      border: 1px solid transparent;
+      padding: 0.3em 0.6em;
+      font-size: 1em;
+      font-weight: ${({ theme }) => theme.font.weigth.semiBold};
+      font-family: inherit;
+      background-color: ${({ theme }) => theme.colors.black};
+      cursor: pointer;
+      transition: border-color 0.25s;
+      &:hover {
+        border-color: ${({ theme }) => theme.colors.borderColor};
+      }
+    }
+    &Container {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      z-index: 5;
+      & img {
+        width: 100%;
+      }
+    }
+  }
 `;
 
 export { CardContainer, InfoContainer, Description, Link, Button };

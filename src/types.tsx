@@ -19,6 +19,7 @@ export type ICard = {
 };
 
 export type ICards = {
+  status: number | undefined;
   cards: ICard[];
 };
 
@@ -26,10 +27,12 @@ export type SettingType = {
   entriesOnSelectedPage: ICard[];
   actualPageIdx: number;
   lastPageIdx: number;
+  elementsOnPage: number;
 };
 
 export type FunctionsType = {
   goToPage: (number: number) => void;
+  handleEntriesChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 export type PaginationType = {

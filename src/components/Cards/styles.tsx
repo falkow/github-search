@@ -6,19 +6,5 @@ const ResultsContainer = styled.div`
 const Title = styled.h2`
   text-align: center;
 `;
-const Input = styled.input`
-  border-radius: ${({ theme }) => theme.border};
-  background-color: ${({ theme }) => theme.colors.inputColor};
-  border: none;
-  text-align: center;
-`;
-const Label = styled.label`
-  padding-right: 5px;
-`;
-const RecordsInputContainer = styled.div`
-  margin: 20px 0;
-  display: flex;
-  justify-content: center;
-`;
 
-export { ResultsContainer, Title, Input, Label, RecordsInputContainer };
+export { ResultsContainer, Title };

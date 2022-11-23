@@ -3,18 +3,17 @@ import { DefaultTheme } from 'styled-components';
 export const theme: DefaultTheme = {
   colors: {
     blue: '#646cff',
-    black: '#1a1a1a',
-    white: '#ffffffde',
-    cardColor: '#41469F',
-    // cardColor: '#825d50',
-    formColor: '#41469F',
-    // formColor: '#309975',
-    inputColor: '#1a1a1a',
+    black: '#26292A',
+    white: '#ffffff',
+    warning: '#F3F8D1',
+    fontColor: '#ffffffde',
+    cardColor: '#265D62',
+    formColor: '#667E89',
+    inputColor: '#26292A',
+    inputColorActive: '#7B57AF',
     linkColor: '#242424',
-    backgroundColor: '#E4BB48',
-    // E4D448,
-    // 613A9B
-    // 41469F
+    backgroundColor: '#AEC591',
+    borderColor: '#AEC591',
   },
   font: {
     family: {
@@ -25,6 +24,15 @@ export const theme: DefaultTheme = {
       normal: 400,
       semiBold: 500,
     },
+    size: {
+      small: '14px',
+      normal: '16px',
+    },
   },
   border: '8px',
+  breakpoints: {
+    sm: '480px',
+    md: '768px',
+    lg: '1024px',
+  },
 };
