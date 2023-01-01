@@ -4,40 +4,37 @@ import { IFormInput } from '../types';
 
 export const useFetch = () => {
   const [cards, setCards] = useState([]);
+  const [error, setError] = useState<boolean>();
   const [status, setStatus] = useState();
 
-  const handleParams = (data: IFormInput) => {
-    const tagsWithAttr: string[] = [];
-    const url = new URL(location.href);
-    const params = new URLSearchParams(location.search);
-    Object.entries(data).map(([key, value]) => {
-      tagsWithAttr.push(`${key}=${value}`);
-      url.searchParams.append(key, 'value');
-    });
-  };
-
   const handleData = (data: IFormInput) => {
-    const { query, user, language } = data;
+    const { query, user, language, numberOfElementsOnPage } = data;
     if (query.length <= 0 || user.length <= 0) {
       return;
     }
-    // handleParams(data);
     const controller = new AbortController();
 
     axios({
       method: 'GET',
       url: `https://api.github.com/search/code?q=${query}+user:${user}+language:${language}`,
+      // url: `https://api.github.com/search/code?q=item+language:javascript&per_page=undefined`,
       signal: controller.signal,
     })
       .then((response) => {
         setCards(response.data.items);
         setStatus(response.data.total_count);
+        console.log(response);
+        // 'https://api.github.com/search/code?q=item+user:falkow+language:javascript&per_page=undefined'; when cant find any matches
       })
       .catch((error) => {
-        error.response.data.errors.forEach((element: any) => {
-          alert(element.message);
-        });
-        console.log(error);
+        setError(true);
+        setCards(error.response.data.errors);
+        // useReducer? or redux?
+
+        // error.response.data.errors.forEach((element: any) => {
+        //   alert(element.message);
+        // });
+        console.log(error.response.data.errors);
       });
 
     return () => {
@@ -45,5 +42,5 @@ export const useFetch = () => {
     };
   };
 
-  return { handleData, cards, status };
+  return { handleData, cards, status, error };
 };

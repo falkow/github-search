@@ -29,7 +29,7 @@ export const theme: DefaultTheme = {
       normal: '16px',
     },
   },
-  border: '8px',
+  border: '12px',
   breakpoints: {
     sm: '480px',
     md: '768px',

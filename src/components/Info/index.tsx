@@ -1,5 +1,6 @@
 import * as S from './styles';
 
-export const Info = () => {
-  return <S.InformationCard>Can't find any matching results</S.InformationCard>;
+const Info = ({ text }: any) => {
+  return <S.InformationCard>{text}</S.InformationCard>;
 };
+export default Info;

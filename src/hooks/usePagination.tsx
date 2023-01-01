@@ -2,10 +2,11 @@ import { useState } from 'react';
 import { SettingType, FunctionsType, ICard } from '../types';
 
 export const usePagination = (
-  dataEntries: ICard[]
+  dataEntries: ICard[],
+  numberOfElementsOnPage: number = 5
 ): [SettingType, FunctionsType] => {
   const [actualPageIdx, setActualPageIdx] = useState(1);
-  const [elementsOnPage, setElementsOnPage] = useState(10);
+  const [elementsOnPage, setElementsOnPage] = useState(numberOfElementsOnPage);
 
   const handleEntriesChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const result = event.target.value.replace(/\D/g, '');
@@ -24,6 +25,10 @@ export const usePagination = (
     }
   };
 
+  const goToPage = (number: number) => {
+    setActualPageIdx(number);
+  };
+
   const indexOfLastItemOnPage = actualPageIdx * elementsOnPage;
 
   const indexOfFirstItemOnPage = indexOfLastItemOnPage - elementsOnPage;
@@ -40,10 +45,6 @@ export const usePagination = (
     actualPageIdx,
     lastPageIdx,
     elementsOnPage,
-  };
-
-  const goToPage = (number: number) => {
-    setActualPageIdx(number);
   };
 
   const paginationActions: FunctionsType = {

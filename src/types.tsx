@@ -7,6 +7,7 @@ export type IFormInput = {
   query: string;
   user: string;
   language: LangEnum | undefined;
+  numberOfElementsOnPage: number;
 };
 
 export type ICard = {

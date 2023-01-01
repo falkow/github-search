@@ -2,7 +2,7 @@ import { ICard } from '../../types';
 import { useVisibility } from '../../hooks/useVisibility';
 import * as S from './styles';
 
-export const Card = ({
+const Card = ({
   name,
   html_url,
   repository: {
@@ -43,3 +43,4 @@ export const Card = ({
     </S.CardContainer>
   );
 };
+export default Card;

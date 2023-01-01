@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import { PaginationType } from '../../types';
 import * as S from './styles';
 
-export const Pagination = ({
+const Pagination = ({
   postPerPage,
   totalPosts,
   paginationActions,
@@ -22,7 +22,7 @@ export const Pagination = ({
   return (
     <>
       <S.RecordsInputContainer>
-        <S.Label>Number of records on page: </S.Label>
+        <S.Label>Records on page: </S.Label>
         <S.Input
           type='number'
           min={1}
@@ -47,3 +47,4 @@ export const Pagination = ({
     </>
   );
 };
+export default Pagination;

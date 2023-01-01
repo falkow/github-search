@@ -13,6 +13,7 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "octokit": "^2.0.10",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.35.0",
@@ -26,6 +27,6 @@
     "axios": "^0.27.2",
     "gh-pages": "^4.0.0",
     "typescript": "^4.6.4",
-    "vite": "^3.2.4"
+    "vite": "^3.2.5"
   }
 }
