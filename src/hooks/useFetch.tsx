@@ -5,39 +5,52 @@ import { IFormInput } from '../types';
 export const useFetch = () => {
   const [cards, setCards] = useState([]);
   const [status, setStatus] = useState();
+  const [error, setError] = useState<string | null>(null);
 
-  const handleParams = (data: IFormInput) => {
-    const tagsWithAttr: string[] = [];
-    const url = new URL(location.href);
-    const params = new URLSearchParams(location.search);
-    Object.entries(data).map(([key, value]) => {
-      tagsWithAttr.push(`${key}=${value}`);
-      url.searchParams.append(key, 'value');
-    });
-  };
-
+  const gitHubToken = import.meta.env.VITE_GITHUB_TOKEN;
+  console.log(gitHubToken);
   const handleData = (data: IFormInput) => {
     const { query, user, language } = data;
     if (query.length <= 0 || user.length <= 0) {
       return;
     }
-    // handleParams(data);
     const controller = new AbortController();
 
     axios({
       method: 'GET',
       url: `https://api.github.com/search/code?q=${query}+user:${user}+language:${language}`,
       signal: controller.signal,
+      headers: {
+        Authorization: `Bearer ${gitHubToken}`,
+      },
     })
       .then((response) => {
         setCards(response.data.items);
         setStatus(response.data.total_count);
       })
       .catch((error) => {
-        error.response.data.errors.forEach((element: any) => {
-          alert(element.message);
-        });
-        console.log(error);
+        if (error.response) {
+          switch (error.response.status) {
+            case 401:
+              setError('Błąd 401: Nieautoryzowany dostęp. Sprawdź token.');
+              break;
+            case 403:
+              setError('Błąd 403: Przekroczono limit zapytań do GitHub API.');
+              break;
+            case 404:
+              setError('Błąd 404: Nie znaleziono wyników.');
+              break;
+            default:
+              setError(`Błąd API: ${error.response.data.message}`);
+          }
+        } else if (error.request) {
+          setError(
+            'Brak odpowiedzi od serwera. Sprawdź połączenie internetowe.'
+          );
+        } else {
+          setError(`Błąd: ${error.message}`);
+        }
+        console.error('Błąd zapytania:', error);
       });
 
     return () => {
@@ -45,5 +58,5 @@ export const useFetch = () => {
     };
   };
 
-  return { handleData, cards, status };
+  return { handleData, cards, status, error };
 };
