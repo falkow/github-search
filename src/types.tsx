@@ -20,6 +20,7 @@ export type ICard = {
 
 export type ICards = {
   status: number | undefined;
+  error: string | null;
   cards: ICard[];
 };
 

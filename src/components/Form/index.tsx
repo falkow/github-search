@@ -54,8 +54,7 @@ function Form() {
         </S.InputContainer>
         <S.Button type='submit'>Search</S.Button>
       </S.Form>
-      {error}
-      <Cards cards={cards} status={status} />
+      <Cards cards={cards} status={status} error={error} />
     </S.Container>
   );
 }
