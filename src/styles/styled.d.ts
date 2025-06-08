@@ -15,6 +15,8 @@ declare module 'styled-components' {
       backgroundColor: string;
       fontColor: string;
       borderColor: string;
+      errorBg: string;
+      errorColor: string;
     };
     font: {
       family: {

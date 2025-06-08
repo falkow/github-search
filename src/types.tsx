@@ -41,3 +41,7 @@ export type PaginationType = {
   totalPosts: number;
   paginationActions: FunctionsType;
 };
+
+export type ErrorMessageType = {
+  message: string;
+};

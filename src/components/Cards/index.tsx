@@ -5,6 +5,7 @@ import { usePagination } from '../../hooks/usePagination';
 import { Pagination } from '../Pagination';
 import * as S from './styles';
 import { Info } from '../Info';
+import { ErrorMessage } from '../Error';
 
 export const Cards = ({ cards, status, error }: ICards) => {
   const [paginationState, paginationActions] = usePagination(cards);
@@ -12,7 +13,7 @@ export const Cards = ({ cards, status, error }: ICards) => {
   return (
     <S.ResultsContainer>
       {status === 0 && <Info />}
-      {error}
+      {error && <ErrorMessage message={error} />}
       {entriesOnSelectedPage.length > 0 && (
         <>
           <S.Title>Results:</S.Title>

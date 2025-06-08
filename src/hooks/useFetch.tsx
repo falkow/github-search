@@ -8,7 +8,7 @@ export const useFetch = () => {
   const [error, setError] = useState<string | null>(null);
 
   const gitHubToken = import.meta.env.VITE_GITHUB_TOKEN;
-  console.log(gitHubToken);
+
   const handleData = (data: IFormInput) => {
     const { query, user, language } = data;
     if (query.length <= 0 || user.length <= 0) {
@@ -32,25 +32,23 @@ export const useFetch = () => {
         if (error.response) {
           switch (error.response.status) {
             case 401:
-              setError('Błąd 401: Nieautoryzowany dostęp. Sprawdź token.');
+              setError('Error 401: Unauthorized access. Check token.');
               break;
             case 403:
-              setError('Błąd 403: Przekroczono limit zapytań do GitHub API.');
+              setError('Error 403: GitHub API query limit exceeded.');
               break;
             case 404:
-              setError('Błąd 404: Nie znaleziono wyników.');
+              setError('Error 404: No results found.');
               break;
             default:
-              setError(`Błąd API: ${error.response.data.message}`);
+              setError(`API error: ${error.response.data.message}`);
           }
         } else if (error.request) {
-          setError(
-            'Brak odpowiedzi od serwera. Sprawdź połączenie internetowe.'
-          );
+          setError('No response from server. Check your internet connection.');
         } else {
-          setError(`Błąd: ${error.message}`);
+          setError(`Error: ${error.message}`);
         }
-        console.error('Błąd zapytania:', error);
+        console.error('Query error: ', error);
       });
 
     return () => {

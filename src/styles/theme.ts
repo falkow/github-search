@@ -14,6 +14,8 @@ export const theme: DefaultTheme = {
     linkColor: '#242424',
     backgroundColor: '#AEC591',
     borderColor: '#AEC591',
+    errorBg: '#ffe5e5',
+    errorColor: '#b00020',
   },
   font: {
     family: {
